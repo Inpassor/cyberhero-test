@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+}
+
+th.mat-column-score {
+    width: 100px;
+}
+
+th.mat-column-score-controls {
+    width: 90px;
+}
+
+th.mat-column-controls {
+    width: 40px;
+}
+
+.gamer-name-form {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+
+    .gamer-name-input {
+        flex-grow: 1;
+        margin: 20px;
+    }
+
+    .gamer-name-add-button {
+        flex-shrink: 0;
+        margin: 20px;
+        margin-left: 0;
+    }
+}

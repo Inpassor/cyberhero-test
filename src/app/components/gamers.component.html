@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Никнейм</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+  <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Очки</th>
+      <td mat-cell *matCellDef="let element">{{element.score}}</td>
+  </ng-container>
+  <ng-container matColumnDef="score-controls">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="onGamerScoreMinus(element)"><mat-icon>remove</mat-icon></button>
+      <button mat-icon-button (click)="onGamerScorePlus(element)"><mat-icon>add</mat-icon></button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="controls">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="onGamerRemove(element)"><mat-icon>delete_forever</mat-icon></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="gamer-name-form">
+  <mat-form-field class="gamer-name-input">
+    <mat-label>Никнейм игрока</mat-label>
+    <input matInput type="text" autocomplete="off" [(ngModel)]="gamerNameInput">
+    <button mat-button *ngIf="gamerNameInput" matSuffix mat-icon-button (click)="gamerNameInput=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-flat-button color="primary" class="gamer-name-add-button" (click)="onGamerAdd()">Добавить</button>
+</div>
